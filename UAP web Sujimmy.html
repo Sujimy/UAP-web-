@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi produk UAP</title>
+    <style>
+        table {
+            width: 40%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Informasi produk UAP</h2>
+    <table>
+        <thead>
+            <tr>
+     <th>Code</th>
+    <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>A</td>
+                <td>10,000</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>B</td>
+                <td>20,000</td>
+            </tr>
+            <tr>
+         <td>003</td>
+    <td>C</td>
+                <td>30,000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form id="inputForm">
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required>
+
+        <label for="banyaknya barang">banyaknya barang:</label>
+        <input type="number" id="banyaknya barang" name="banyaknya barang" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById("inputForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get input values
+            var code = document.getElementById("code").value;
+            var quantity = document.getElementById("quantity").value;
+
+            // Add a new row to the table
+            var table = document.querySelector("table tbody");
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            cell1.innerHTML = code;
+            cell2.innerHTML = "New Item";
+            cell3.innerHTML = quantity;
+        });
+    </script>
+</body>
+
+</html>
